@@ -27,7 +27,9 @@ namespace Application.Services
         public async Task<GetDetailedCandidatoDTO> GetCandidatoByIdAsync(int id)
         {
             var candidato = await _candidatoRepository.GetCandidatoByIdAsync(id);
-            return _mapper.Map<GetDetailedCandidatoDTO>(candidato);
+            var candidatoMapeado = _mapper.Map<GetDetailedCandidatoDTO>(candidato);
+
+            return candidatoMapeado;
         }
 
         public async Task<IEnumerable<GetCandidatoDTO>> GetCandidatosAsync()
@@ -35,20 +37,16 @@ namespace Application.Services
             var candidatos = await _candidatoRepository.GetCandidatosAsync();
             var candidatoMapeados = _mapper.Map<IEnumerable<GetCandidatoDTO>>(candidatos);
 
-            foreach(var candidato in candidatoMapeados)
-                candidato.VotoAmount = _votoService.GetVotoAmount(candidato.Id);
-
             return candidatoMapeados.OrderByDescending(x => x.VotoAmount);
-
         }
 
         public async Task<Candidato> RemoveAsync(int candidatoId)
         {
             var candidato = await _candidatoRepository.GetCandidatoByIdAsync(candidatoId);
-            if(candidato != null)
-                return await _candidatoRepository.RemoveAsync(candidato);
+            if (candidato == null)
+                throw new Exception("Candidato Not Found");
 
-            return null;
+            return await _candidatoRepository.RemoveAsync(candidato);
         }
     }
 }

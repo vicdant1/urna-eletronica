@@ -9,8 +9,14 @@ namespace Application.Mapping
         public UrnaMappingProfile()
         {
             CreateMap<Candidato, CreateCandidatoDTO>().ReverseMap();
-            CreateMap<Candidato, GetCandidatoDTO>().ReverseMap();
-            CreateMap<Candidato, GetDetailedCandidatoDTO>().ReverseMap();
+            CreateMap<Candidato, GetCandidatoDTO>().ForMember(m => m.VotoAmount, opt =>
+            {
+                opt.MapFrom(x => x.Votos.Count());
+            }).ReverseMap();
+            CreateMap<Candidato, GetDetailedCandidatoDTO>().ForMember(m => m.VotoAmount, opt =>
+            {
+                opt.MapFrom(x => x.Votos.Count());
+            }).ReverseMap();
             
             CreateMap<Voto, CreateVotoDTO>().ReverseMap();
         }

@@ -26,9 +26,8 @@ namespace Infra.Data.Repositories
         }
 
         public int GetVotoAmount(int? candidatoId)
-        {
-            return _appDbContext.Votos.Where(v => v.CandidatoId == candidatoId).Count();
-        }
+            => _appDbContext.Votos.Where(v => v.CandidatoId == candidatoId).Count();
+        
 
         public async Task<Voto> UpdateVoto(Voto voto)
         {

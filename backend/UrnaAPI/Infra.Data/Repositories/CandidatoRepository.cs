@@ -2,11 +2,6 @@
 using Domain.IRepository;
 using Infra.Data.DataContext;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infra.Data.Repositories
 {
@@ -26,11 +21,11 @@ namespace Infra.Data.Repositories
             return candidato;
         }
 
-        public async Task<Candidato> GetCandidatoByIdAsync(int id) 
-            => await _appDbContext.Candidatos.FindAsync(id);
+        public async Task<Candidato> GetCandidatoByIdAsync(int id)
+            => await _appDbContext.Candidatos.Include(x => x.Votos).FirstOrDefaultAsync(x => x.Id == id);
 
         public async Task<IEnumerable<Candidato>> GetCandidatosAsync()
-            => await _appDbContext.Candidatos.ToListAsync();
+            => await _appDbContext.Candidatos.Include(x => x.Votos).ToListAsync();
 
         public async Task<Candidato> RemoveAsync(Candidato candidato)
         {

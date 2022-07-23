@@ -27,22 +27,16 @@ namespace UrnaWebAPI.Controllers
         [HttpDelete("/candidate")]
         public async Task<IActionResult> DeleteCandidato(int id)
         {
-            var candidato = await _candidatoService.RemoveAsync(id);
-            if (candidato != null)
+            try
+            {
+                var candidato = await _candidatoService.RemoveAsync(id);
+                
                 return Ok(candidato);
-
-            return BadRequest();
-        }
-
-        [HttpGet("/votes")]
-        public async Task<IActionResult> GetCandidatos()
-        {
-            var candidatos = await _candidatoService.GetCandidatosAsync();
-
-            if (candidatos != null && candidatos.Count() > 0)
-                return Ok(candidatos);
-
-            return NotFound();
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }   
         }
 
         [HttpGet("/getCandidatoById")]

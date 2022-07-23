@@ -9,9 +9,11 @@ namespace UrnaWebAPI.Controllers
     public class VotosController : ControllerBase
     {
         private readonly IVotoService _votoService;
-        public VotosController(IVotoService votoService)
+        private readonly ICandidatoService _candidatoService;
+        public VotosController(IVotoService votoService, ICandidatoService candidatoService)
         {
             _votoService = votoService;
+            _candidatoService = candidatoService;
         }
 
         [HttpPost("/vote")]
@@ -25,7 +27,18 @@ namespace UrnaWebAPI.Controllers
             return BadRequest();
         }
 
-        [HttpGet("/getNullVotes")]
+        [HttpGet("/votes")]
+        public async Task<IActionResult> GetCandidatos()
+        {
+            var candidatos = await _candidatoService.GetCandidatosAsync();
+
+            if (candidatos != null && candidatos.Count() > 0)
+                return Ok(candidatos);
+
+            return NotFound();
+        }
+
+        [HttpGet("/getNullVotesAmount")]
         public IActionResult GetNullVotesAmount()
         {
             return Ok(_votoService.GetNullVotesAmount());
