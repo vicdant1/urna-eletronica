@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "g3Q+Zjw7UGs8ETHQpSOIKe2euja4mP1PGJSGuxMeGBs=",
+  "Source": "UrnaWebAPI",
+  "BasePath": "_content/UrnaWebAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "tIKezN/bDJelDZwMsvBVMVSbQVD3ZuEX5aObdv3cgpb7zpfbrMVlVsWq8rFt+lnMDsqqVVCZyvr2l+B0suuyCg==",
+  "dgSpecHash": "GfJryrEp+OwitSsO11zXmAEJsM6+0FnwebXdtAmyeWcuFZJkmnqWyvSw6l5YTliBT4bgYquAawJaWEzG5JhDYQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\victo\\OneDrive\\Documentos\\Pessoal\\_projetos\\urna-eletronica\\backend\\UrnaAPI\\Application\\Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\victo\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
+    "C:\\Users\\victo\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+    "C:\\Users\\victo\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\victo\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\victo\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\victo\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\victo\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
