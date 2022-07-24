@@ -1,0 +1,36 @@
+.mainPage
+{
+  width: 100vw;
+  height: 100vh ;
+  background-image: url("/bannerConfirmacao.png");
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boxHolder
+{
+  background-color: #ffffff;
+  min-width: 600px;
+  text-align: center;
+  position: absolute;
+  bottom: 3rem;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+@media screen and (max-width: 600px)
+{
+  .boxHolder
+  {
+    width: 100%;
+    min-width: 100%; 
+    padding: 0.5rem;
+    position: relative;
+  }
+  .mainPage
+  {
+    padding: 1rem;
+  }
+}

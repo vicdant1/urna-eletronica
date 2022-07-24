@@ -27,6 +27,8 @@ namespace Infra.IoC
 
             services.AddAutoMapper(typeof(UrnaMappingProfile));
 
+            services.AddCors();
+
             return services;
         }
     }

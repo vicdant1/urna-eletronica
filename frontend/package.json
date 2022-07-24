@@ -9,11 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "axios": "^0.27.2",
+    "bootstrap": "^5.2.0",
+    "jquery": "^3.6.0",
     "next": "12.2.3",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-icons": "^4.4.0",
+    "react-toastify": "^9.0.7"
   },
   "devDependencies": {
+    "@types/bootstrap": "^5.2.0",
+    "@types/jquery": "^3.5.14",
     "@types/node": "18.0.6",
     "@types/react": "18.0.15",
     "@types/react-dom": "18.0.6",

@@ -24,7 +24,7 @@ namespace UrnaWebAPI.Controllers
             return BadRequest();
         }
 
-        [HttpDelete("/candidate")]
+        [HttpDelete("/candidate/{id:int}")]
         public async Task<IActionResult> DeleteCandidato(int id)
         {
             try
@@ -40,7 +40,7 @@ namespace UrnaWebAPI.Controllers
         }
 
         [HttpGet("/getCandidatoById")]
-        public async Task<IActionResult> GetCandidatoById(int id)
+        public async Task<IActionResult> GetCandidatoById([FromQuery]int id)
         {
             var candidato = await _candidatoService.GetCandidatoByIdAsync(id);
             if (candidato != null)

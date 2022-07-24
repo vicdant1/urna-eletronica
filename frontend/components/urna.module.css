@@ -1,0 +1,90 @@
+.urnaScreen
+{
+  background-color: rgb(255, 255, 255);
+  padding: .8rem;
+  border-radius: 4px;
+}
+
+.urnaContainer
+{
+  min-height: 400px;
+  margin: 0 2px;
+  box-shadow: 0px 12px 10px #00000099;
+  padding: 1rem;
+  border-radius: .6rem;
+  border: 1px solid #00000013;
+}
+
+.urnaButtonContainer
+{
+  padding: .8rem;
+}
+
+.numberButtonContainer
+{
+  height: 80%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  gap: 2px;
+}
+
+.numberButtonContainer span
+{
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  line-height: 60px !important;
+  font-size: 1.1rem !important;
+  color: #FFF;
+  text-align: center;
+
+  background-color: rgb(27, 27, 27);
+  border-radius: .3rem;
+
+  cursor: pointer;
+  transition: .2s ease-in-out;
+}
+
+.numberButtonContainer span:hover
+{
+  background-color: #FFF !important; 
+  color: #000000;
+}
+
+.actionButtonContainer
+{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  justify-items: center;
+}
+
+.actionButtonContainer span
+{
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  padding: .3rem;
+  border-radius: .2rem;
+  text-align: center;
+  cursor: pointer;
+
+  transition: .2s ease-in-out;
+}
+
+.actionButtonContainer span:hover
+{
+  transform: scale(1.08);
+}
+
+.candidatoData
+{
+  font-size: 1.1rem;
+}
+
+.numberBox
+{
+  min-height: 60px;
+  border: 1px solid black;
+}
