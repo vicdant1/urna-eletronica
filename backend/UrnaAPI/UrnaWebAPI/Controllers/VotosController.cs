@@ -32,7 +32,7 @@ namespace UrnaWebAPI.Controllers
         {
             var candidatos = await _candidatoService.GetCandidatosAsync();
 
-            if (candidatos != null && candidatos.Count() > 0)
+            if (candidatos != null)
                 return Ok(candidatos);
 
             return NotFound();

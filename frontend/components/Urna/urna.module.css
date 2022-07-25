@@ -52,6 +52,11 @@
   color: #000000;
 }
 
+.numberButtonContainer span:last-child
+{
+  grid-column-start: 2;
+}
+
 .actionButtonContainer
 {
   display: grid;

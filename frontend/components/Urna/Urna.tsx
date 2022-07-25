@@ -23,11 +23,10 @@ const Urna = ({className} : UrnaProps) => {
 
   const fetchData = async () => {
     await axios.get(`http://localhost:5222/getCandidatoById?id=${numeroCandidato}`)
-               .then(res => setCandidatoData(res.data))
-               .catch(err => {
-                  toast.error("Candidato não cadastrado.")
-                  handleNumberClear();
-               });	
+      .then(res => setCandidatoData(res.data))
+      .catch(err => {
+        toast.warning("Candidato não cadastrado, será computado voto NULO caso confirmado.")
+      });	
   }
 
   const handleInputChange = (e) => {
@@ -42,11 +41,11 @@ const Urna = ({className} : UrnaProps) => {
 
   const handleVotoBanco = async () => {
     await axios.post(`http://localhost:5222/vote`, {})
-               .then(() => {
-                  toast.success("Voto computado com sucesso!");
-                  router.push('/Confirmacao');
-               })
-               .catch(() => toast.error("Não foi possível computar o voto."));
+      .then(() => {
+        toast.success("Voto computado com sucesso!");
+        router.push('/Confirmacao');
+      })
+      .catch(() => toast.error("Não foi possível computar o voto."));
   }
 
   const handleConfirmarVoto = async () => {
@@ -55,11 +54,11 @@ const Urna = ({className} : UrnaProps) => {
     else
     {
       await axios.post(`http://localhost:5222/vote`, {candidatoId: numeroCandidato})
-                .then( () => {
-                    toast.success("Voto computado com sucesso!");
-                    router.push('/Confirmacao');
-                })
-                .catch(() => toast.error("Não foi possível computar o voto."));
+        .then( () => {
+            toast.success("Voto computado com sucesso!");
+            router.push('/Confirmacao');
+        })
+        .catch(() => toast.error("Não foi possível computar o voto."));
     }
   }
 

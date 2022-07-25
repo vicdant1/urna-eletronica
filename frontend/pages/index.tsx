@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import { FaExternalLinkAlt } from "react-icons/fa";
 import Head from 'next/head'
 import Link from 'next/link'
-import Urna from '../components/Urna'
+import Urna from '../components/Urna/Urna'
 
 const Home: NextPage = () => {
   return (

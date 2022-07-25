@@ -1,0 +1,12 @@
+.circularProgress
+{
+  max-width: 60px;
+}
+
+.emptyPage
+{
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

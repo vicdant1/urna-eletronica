@@ -18,31 +18,31 @@ const Cadastro: NextPage = () => {
 
   const fetchData = async () => {
     return await axios.get('http://localhost:5222/votes')
-                      .then(res => setCandidatos(res.data))
-                      .catch(err => console.log(err));
+      .then(res => setCandidatos(res.data))
+      .catch(err => console.log(err));
   }
 
   const cadastrarCandidato = async () => {
     await axios.post('http://localhost:5222/candidate', candidato)
-               .then(() => {
-                  $('#modalCadastro').modal('hide');
-                  fetchData();
-                  toast.success("Candidato cadastrado com sucesso!");
-               })
-               .catch(() => {
-                  toast.error("Não foi possível cadastrar o candidato.");
-               });
+      .then(() => {
+        $('#modalCadastro').modal('hide');
+        fetchData();
+        toast.success("Candidato cadastrado com sucesso!");
+      })
+      .catch(() => {
+        toast.error("Não foi possível cadastrar o candidato.");
+      });
   }
 
   const deleteCandidato = async (id:number) => {
     await axios.delete(`http://localhost:5222/candidate/${id}`)
-               .then(() => {
-                  fetchData();
-                  toast.success("Candidato excluído com sucesso!");
-               })
-               .catch(() => {
-                  toast.error("Não foi possível excluir o candidato.");
-               });
+      .then(() => {
+        fetchData();
+        toast.success("Candidato excluído com sucesso!");
+      })
+      .catch(() => {
+        toast.error("Não foi possível excluir o candidato.");
+      });
   }
   
   const cleanCandidatoObject = () => {
@@ -68,7 +68,7 @@ const Cadastro: NextPage = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-12 d-flex justify-content-end">
-              <button className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCadastro"><FaPlusCircle/> Candidato</button>
+              <button className="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalCadastro"><FaPlusCircle/> Candidato</button>
             </div>
           </div>
 
@@ -77,7 +77,7 @@ const Cadastro: NextPage = () => {
           <table className="table table-striped mt-4">
             <thead>
               <tr>
-                <th scope="col">#</th>
+                <th scope="col">Número</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Vice</th>
                 <th scope="col" className="text-center">Legenda</th>
@@ -133,7 +133,7 @@ const Cadastro: NextPage = () => {
             </div>
             <div className="modal-footer">
               <button type="button" onClick={() => cleanCandidatoObject()} className="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-              <button type="button" onClick={() => cadastrarCandidato()} className="btn btn-primary">Cadastrar</button>
+              <button type="button" onClick={() => cadastrarCandidato()} className="btn btn-dark">Cadastrar</button>
             </div>
           </div>
         </div>
