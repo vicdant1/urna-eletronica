@@ -10,12 +10,10 @@ namespace Application.Services
     {
         private readonly IMapper _mapper;
         private readonly ICandidatoRepository _candidatoRepository;
-        private readonly IVotoService _votoService;
-        public CandidatoService(IMapper mapper, ICandidatoRepository candidatoRepository, IVotoService votoService)
+        public CandidatoService(IMapper mapper, ICandidatoRepository candidatoRepository)
         {
             _mapper = mapper;
             _candidatoRepository = candidatoRepository;
-            _votoService = votoService;
         }
 
         public async Task<Candidato> CreateAsync(CreateCandidatoDTO createCandidatoDTO)
@@ -24,7 +22,7 @@ namespace Application.Services
             return await _candidatoRepository.CreateAsync(candidato);
         }
 
-        public async Task<GetDetailedCandidatoDTO> GetCandidatoByIdAsync(int id)
+        public async Task<GetDetailedCandidatoDTO> GetCandidatoByIdAsync(int? id)
         {
             var candidato = await _candidatoRepository.GetCandidatoByIdAsync(id);
             var candidatoMapeado = _mapper.Map<GetDetailedCandidatoDTO>(candidato);

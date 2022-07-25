@@ -10,16 +10,19 @@ namespace Application.Services
     {
         private readonly IMapper _mapper;
         private readonly IVotoRepository _votoRepository;
-        public VotoService(IMapper mapper, IVotoRepository votoRepository)
+        private readonly ICandidatoService _candidatoService;
+        public VotoService(IMapper mapper, IVotoRepository votoRepository, ICandidatoService candidatoService)
         {
             _mapper = mapper;
             _votoRepository = votoRepository;
+            _candidatoService = candidatoService;
         }
         public async Task<Voto> CreateVoto(CreateVotoDTO createVotoDTO)
         {
             var voto = _mapper.Map<Voto>(createVotoDTO);
 
-            if (voto.CandidatoId == 0) voto.CandidatoId = null;
+            if (await _candidatoService.GetCandidatoByIdAsync(voto.CandidatoId) == null)
+                voto.CandidatoId = null;
 
             return await _votoRepository.CreateVoto(voto);
         }

@@ -21,7 +21,7 @@ namespace Infra.Data.Repositories
             return candidato;
         }
 
-        public async Task<Candidato> GetCandidatoByIdAsync(int id)
+        public async Task<Candidato> GetCandidatoByIdAsync(int? id)
             => await _appDbContext.Candidatos.Include(x => x.Votos).FirstOrDefaultAsync(x => x.Id == id);
 
         public async Task<IEnumerable<Candidato>> GetCandidatosAsync()

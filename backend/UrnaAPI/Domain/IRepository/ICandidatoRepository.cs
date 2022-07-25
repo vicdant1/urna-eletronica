@@ -10,7 +10,7 @@ namespace Domain.IRepository
     public interface ICandidatoRepository
     {
         Task<IEnumerable<Candidato>> GetCandidatosAsync();
-        Task<Candidato> GetCandidatoByIdAsync(int id);
+        Task<Candidato> GetCandidatoByIdAsync(int? id);
 
         Task<Candidato> CreateAsync(Candidato candidato);
         Task<Candidato> UpdateAsync(Candidato candidato);
